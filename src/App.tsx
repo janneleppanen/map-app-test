@@ -11,7 +11,7 @@ function App(): React.JSX.Element {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name={'Front'} component={FrontScreen}/>
-          <Stack.Screen name={'Map'} component={MapScreen /*BUG: android google map crashes if this is first*/}/>
+          <Stack.Screen name={'Map'} component={MapScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
   )

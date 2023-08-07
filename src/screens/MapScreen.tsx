@@ -1,7 +1,7 @@
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import MapsIndoors, {
   MapControl,
-  MapView, MPDirectionsRenderer,
+  MapView, MPCameraUpdate, MPDirectionsRenderer,
   MPDirectionsService,
   MPFilter,
   MPLocation, MPMapConfig,
@@ -29,7 +29,7 @@ export default function MapScreen({navigation, route}) {
 
       console.log('Creating MapControl...');
       const mapControl = await MapControl.create(new MPMapConfig({useDefaultMapsIndoorsStyle: true}), NativeEventEmitter);
-      setMapControl(mapControl)
+      setMapControl(mapControl);
 
       console.log('Moving to venue...');
       await mapControl.goTo((await MapsIndoors.getVenues()).getAll()[0]);
@@ -126,6 +126,7 @@ export default function MapScreen({navigation, route}) {
     //Listen for leg changes
     directionsRenderer.setOnLegSelectedListener((leg) => {
       setRouteLeg(leg);
+      mapControl?.animateCamera(MPCameraUpdate.zoomTo(16));
     });
   }
 
@@ -157,7 +158,7 @@ export default function MapScreen({navigation, route}) {
         <View style={{position: 'absolute', bottom: 50, start: 10, flexDirection: 'column-reverse'}}>
           <Button title="livedata" onPress={livedata} />
         </View>
-        <BottomSheet ref={bottomSheet} snapPoints={['15%', '60%']} index={-1} enablePanDownToClose={true} onChange={() => {}} onClose={clear}>
+        <BottomSheet ref={bottomSheet} snapPoints={['15%', '60%']} index={-1} enablePanDownToClose={true} onClose={clear}>
           <NavigationHeader searchResults={searchResults}
             fromLocation={fromLocation}
             toLocation={toLocation}
