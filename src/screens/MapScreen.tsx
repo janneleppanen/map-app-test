@@ -126,7 +126,6 @@ export default function MapScreen({navigation, route}) {
     //Listen for leg changes
     directionsRenderer.setOnLegSelectedListener((leg) => {
       setRouteLeg(leg);
-      mapControl?.animateCamera(MPCameraUpdate.zoomTo(16));
     });
   }
 
