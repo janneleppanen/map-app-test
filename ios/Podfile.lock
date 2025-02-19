@@ -11,24 +11,27 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.72.0)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - GoogleMaps (7.4.0):
-    - GoogleMaps/Maps (= 7.4.0)
-  - GoogleMaps/Base (7.4.0)
-  - GoogleMaps/Maps (7.4.0):
-    - GoogleMaps/Base
   - hermes-engine (0.72.0):
     - hermes-engine/Pre-built (= 0.72.0)
   - hermes-engine/Pre-built (0.72.0)
   - libevent (2.1.12)
-  - MapsIndoors (4.2.0)
-  - MapsIndoorsCodable (4.2.0):
-    - MapsIndoors (= 4.2.0)
-    - MapsIndoorsCore (= 4.2.0)
-  - MapsIndoorsCore (4.2.0):
-    - MapsIndoors (= 4.2.0)
-  - MapsIndoorsGoogleMaps (4.2.0):
-    - GoogleMaps (= 7.4.0)
-    - MapsIndoorsCore (= 4.2.0)
+  - MapboxCommon (24.9.0):
+    - Turf (= 4.0.0)
+  - MapboxCoreMaps (11.9.2):
+    - MapboxCommon (~> 24.9)
+  - MapboxMaps (11.9.1):
+    - MapboxCommon (= 24.9.0)
+    - MapboxCoreMaps (= 11.9.2)
+    - Turf (= 4.0.0)
+  - MapsIndoors (4.9.3)
+  - MapsIndoorsCodable (4.9.3):
+    - MapsIndoors (= 4.9.3)
+    - MapsIndoorsCore (= 4.9.3)
+  - MapsIndoorsCore (4.9.3):
+    - MapsIndoors (= 4.9.3)
+  - MapsIndoorsMapbox11 (4.9.3):
+    - MapboxMaps (= 11.9.1)
+    - MapsIndoorsCore (= 4.9.3)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -328,12 +331,10 @@ PODS:
   - React-jsinspector (0.72.0)
   - React-logger (0.72.0):
     - glog
-  - react-native-maps-indoors-google-maps (1.0.0):
-    - MapsIndoorsCodable (= 4.2.0)
-    - MapsIndoorsGoogleMaps (= 4.2.0)
+  - react-native-maps-indoors-mapbox (2.4.0):
+    - MapsIndoorsCodable (= 4.9.3)
+    - MapsIndoorsMapbox11 (= 4.9.3)
     - React
-  - react-native-pager-view (6.2.0):
-    - React-Core
   - react-native-safe-area-context (4.6.3):
     - RCT-Folly
     - RCTRequired
@@ -485,6 +486,7 @@ PODS:
     - React-Core
     - React-RCTImage
   - SocketRocket (0.6.0)
+  - Turf (4.0.0)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -511,8 +513,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
-  - "react-native-maps-indoors-google-maps (from `../node_modules/@mapsindoors/react-native-maps-indoors-google-maps`)"
-  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
+  - "react-native-maps-indoors-mapbox (from `../node_modules/@mapsindoors/react-native-maps-indoors-mapbox`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -539,13 +540,16 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - fmt
-    - GoogleMaps
     - libevent
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
     - MapsIndoors
     - MapsIndoorsCodable
     - MapsIndoorsCore
-    - MapsIndoorsGoogleMaps
+    - MapsIndoorsMapbox11
     - SocketRocket
+    - Turf
 
 EXTERNAL SOURCES:
   boost:
@@ -591,10 +595,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
-  react-native-maps-indoors-google-maps:
-    :path: "../node_modules/@mapsindoors/react-native-maps-indoors-google-maps"
-  react-native-pager-view:
-    :path: "../node_modules/react-native-pager-view"
+  react-native-maps-indoors-mapbox:
+    :path: "../node_modules/@mapsindoors/react-native-maps-indoors-mapbox"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-NativeModulesApple:
@@ -647,13 +649,15 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 6e7e74b1ed7f0a1a469a82a67521b33285f5fef3
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
-  GoogleMaps: 032f676450ba0779bd8ce16840690915f84e57ac
   hermes-engine: c85f703623cb12d7e1d9db91afe53b3ea8aa7219
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  MapsIndoors: 7557fa44ad3c9afa17e46fd645e46c7cad226e13
-  MapsIndoorsCodable: c13673423a2753408f66e861893bf96c08ee8e96
-  MapsIndoorsCore: 408d3014f87104f0889d054d41215d24a9426725
-  MapsIndoorsGoogleMaps: d74ac2ff82379c473ad1a1914071cd9bcd2d2a21
+  MapboxCommon: 678bfc4b477a804244fd7323c79cc7f2402f844e
+  MapboxCoreMaps: c22e65380c0e11551081196f083b20cab662a5fe
+  MapboxMaps: dbe3b02f9adcee903d5217c9b251536828bc6304
+  MapsIndoors: a5b0112a6e955fd3ff144cd32084d3c4f95220eb
+  MapsIndoorsCodable: 262611e32a6bc84d4e8ee4efd877df60521a877c
+  MapsIndoorsCore: 1456bf43b2703e7c02ba070a159caeadbb99cbed
+  MapsIndoorsMapbox11: 622a18c10566e6b4b4a769f54ec546e04b477c2a
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: 656ef0536dd60a9740961ade6a64ba0cb0572d2b
   RCTTypeSafety: 82bd23b63f043d1a6b8e80e72fd15c08e04528a4
@@ -669,8 +673,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 990287d74aedc4fdd08ebd80736b1a5c71b54da2
   React-jsinspector: 8d754fc957255a29d93e52fc67a895045cdc8703
   React-logger: 454ffb01980778a43b0153ee98721d0275b56616
-  react-native-maps-indoors-google-maps: 47064a317566e6d04634249762bb463aef10ad60
-  react-native-pager-view: 0ccb8bf60e2ebd38b1f3669fa3650ecce81db2df
+  react-native-maps-indoors-mapbox: ad29e345e285340e200d0cf40ce28ddfbaf28b0f
   react-native-safe-area-context: 36cc67648134e89465663b8172336a19eeda493d
   React-NativeModulesApple: 038cd625999ff352fc13d11fd335ea7509794599
   React-perflogger: 684a11499a0589cc42135d6d5cc04d0e4e0e261a
@@ -693,8 +696,9 @@ SPEC CHECKSUMS:
   RNReanimated: 9f7068e43b9358a46a688d94a5a3adb258139457
   RNScreens: 68fd1060f57dd1023880bf4c05d74784b5392789
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  Turf: c9eb11a65d96af58cac523460fd40fec5061b081
   Yoga: 1d6727ed193122f6adaf435c3de1a768326ff83b
 
-PODFILE CHECKSUM: fbc3e8ef5685fd8c85057f592e22bbfac67683b8
+PODFILE CHECKSUM: dd84237d7d2545c5fa885fb334a2af2df516f1c0
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.2

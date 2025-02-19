@@ -1,4 +1,4 @@
-import { MPRouteLeg } from "@mapsindoors/react-native-maps-indoors-google-maps";
+import { MPRouteLeg } from "@mapsindoors/react-native-maps-indoors-mapbox";
 import {Text, View} from "react-native";
 import {BottomSheetFlatList} from "@gorhom/bottom-sheet";
 import React from "react";

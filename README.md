@@ -1,5 +1,10 @@
 # Getting started projects
 
+Set mapbox keys `<PK_KEY>`, `<SK_KEY>`  
+`android/app/source/main/res/values/mapbox_access_token.xml`  
+`ios/GettingStartedProject/Info.plist`
+
+
 From the root of the project, open up a terminal and run `npm install`
 
 ```bash

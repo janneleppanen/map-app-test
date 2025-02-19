@@ -1,6 +1,6 @@
 import {Button, Text, View} from "react-native";
 import React, {useEffect, useState} from "react";
-import { MPRoute, MPRouteLeg } from "@mapsindoors/react-native-maps-indoors-google-maps";
+import { MPRoute, MPRouteLeg } from "@mapsindoors/react-native-maps-indoors-mapbox";
 import RouteInstructionLeg from "./RouteInstructionLeg";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 

@@ -1,4 +1,4 @@
-import MapsIndoors, {MPLocation} from "@mapsindoors/react-native-maps-indoors-google-maps";
+import MapsIndoors, {MPLocation} from "@mapsindoors/react-native-maps-indoors-mapbox";
 import React, {useEffect, useState} from "react";
 import {
   Image,

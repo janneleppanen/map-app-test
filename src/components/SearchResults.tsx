@@ -1,4 +1,4 @@
-import {MPLocation} from "@mapsindoors/react-native-maps-indoors-google-maps";
+import {MPLocation} from "@mapsindoors/react-native-maps-indoors-mapbox";
 import React from "react";
 import SearchResultItem from "./SearchResultItem";
 import {BottomSheetFlatList} from "@gorhom/bottom-sheet";

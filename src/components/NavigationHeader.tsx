@@ -1,4 +1,4 @@
-import {MPLocation} from "@mapsindoors/react-native-maps-indoors-google-maps";
+import {MPLocation} from "@mapsindoors/react-native-maps-indoors-mapbox";
 import {Button, Text, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import React from "react";
